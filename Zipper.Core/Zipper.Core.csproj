@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E28789F5-0926-4B94-9836-13F40F0C17E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zipper.Core</RootNamespace>
+    <AssemblyName>Zipper.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IAlgorithmDecided.cs" />
+    <Compile Include="Interfaces\IAlgorithmDecider.cs" />
+    <Compile Include="Interfaces\IAnalyzed.cs" />
+    <Compile Include="Interfaces\IAnalyzer.cs" />
+    <Compile Include="Interfaces\IBuilder.cs" />
+    <Compile Include="Interfaces\ICompressor.cs" />
+    <Compile Include="Interfaces\IMerger.cs" />
+    <Compile Include="Interfaces\ITokenizer.cs" />
+    <Compile Include="Interfaces\IZipBuilder.cs" />
+    <Compile Include="IocContainer.cs" />
+    <Compile Include="Models\BinaryAlgorithmDecision.cs" />
+    <Compile Include="Models\BodyBase.cs" />
+    <Compile Include="Models\ContentBase.cs" />
+    <Compile Include="Models\HeaderBase.cs" />
+    <Compile Include="Models\TextAlgorithmDecision.cs" />
+    <Compile Include="Models\TextCompressorBody.cs" />
+    <Compile Include="Models\TextCompressorHeader.cs" />
+    <Compile Include="Models\Token.cs" />
+    <Compile Include="Strategies\Builer\TextBodyBuilder.cs" />
+    <Compile Include="Strategies\Builer\TextHeaderBuilder.cs" />
+    <Compile Include="Strategies\Builer\TextZipBuilder.cs" />
+    <Compile Include="Strategies\Compressors\BinaryAlgorithmCompressor.cs" />
+    <Compile Include="Strategies\AlgorithmDecider\AlgorithmDecider.cs" />
+    <Compile Include="Strategies\FileReader.cs" />
+    <Compile Include="Strategies\FileWriter.cs" />
+    <Compile Include="Interfaces\IReader.cs" />
+    <Compile Include="Interfaces\IWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\Compressors\TextAlgorithmCompressor.cs" />
+    <Compile Include="Strategies\Merger\TextMerger.cs" />
+    <Compile Include="Strategies\StreamBase.cs" />
+    <Compile Include="Strategies\Tokenizer\TextCompressorStringTokenizer.cs" />
+    <Compile Include="Utils\FileTypeChecker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
